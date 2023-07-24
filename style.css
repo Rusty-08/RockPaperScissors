@@ -17,7 +17,7 @@
     opacity: 0.4;
 }
 
-.container, .title, .choices, .card-circle, .score-board, .score, .name, #player, #computer {
+.container, .title, .choices, .card-circle, .score-board, .score, .name, #player, #computer, .play {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -150,4 +150,55 @@
 
 #computer {
     left: 1rem;
+}
+
+.play {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 6;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.play .bg {
+    opacity: 1;
+}
+
+.play h1 {
+    z-index: 5;
+    font-size: 3rem;
+    margin-top: 13rem;
+    color: antiquewhite;
+}
+
+.play button {
+    z-index: 5;
+    background-color: rgba(245, 245, 220, 0.7);
+    padding: 0.6rem 3.5rem;
+    margin-top: 3rem;
+    border-radius: 2rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(51, 80, 80);
+    transition: all 0.175s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 15px 15px, rgba(0, 0, 0, 0.2) 0px 10px 8px;
+}
+
+.play button:hover {
+    background-color: rgba(245, 245, 220, 1);
+    color: rgb(21, 47, 47);
+    padding: 0.6rem 4rem;
+    letter-spacing: 0.2rem;
+}
+
+.container .play {
+    transition: all 1s ease-out;
+}
+
+.hide-container {
+    transform: scale(0);
+    opacity: 0;
 }

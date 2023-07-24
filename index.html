@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
     <title>Document</title>
 </head>
 <body>
     <div class="container">
         <img class="bg" src="img/bg.jpg" alt="" srcset="">
         <div class="title">
-            <h1>ROCK, PAPER & SCISSORS</h1>
+            <h1 id="title-container"></h1>
             <span>Race to 5 . . .</span>
         </div>
         <div class="choices">
@@ -33,6 +34,11 @@
                 <div class="name"><span>Computer</span></div>
                 <div id="computer"></div>
             </div>
+        </div>
+        <div class="play" id="play-container">
+            <h1 id="play-text"></h1>
+            <img class="bg" src="img/bg.jpg" alt="" srcset="">
+            <button id="playBtn" type="button">PLAY</button>
         </div>
     </div>
 </body>
