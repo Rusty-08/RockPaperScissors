@@ -21,6 +21,7 @@ const scissor = document.getElementById("scissor")
 const playerScore = document.getElementById("player-score");
 const computerScore = document.getElementById("computer-score");
 const clickedChoice = document.querySelectorAll([".rock", ".paper", ".scissor"])
+const date = document.getElementById("current-date");
 
 // simple typewrite animation
 function typewriterAnimation(text, speed, playTextType) {
@@ -113,3 +114,6 @@ function restartGame() {
     computerPoint = 0;
     computerScore.innerText = computerPoint
 }
+
+const currentDate = new Date();
+date.innerHTML = currentDate.getFullYear();

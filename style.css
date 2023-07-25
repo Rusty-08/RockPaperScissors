@@ -17,6 +17,10 @@
     opacity: 0.4;
 }
 
+.m-bg {
+    display: none;
+}
+
 .container, .title, .choices, .card-circle, .score-board, .score, .name, #player-score, #computer-score, .play {
     display: flex;
     justify-content: center;
@@ -46,13 +50,13 @@
     width: 100vw;
     height: 100vh;
     flex-direction: column;
-    background-color:rgb(115, 64, 27);
+    background-color:rgb(92, 55, 28);
     position: relative;
 }
 
 .choices {
     flex-direction: row;
-    height: 50%;
+    height: 45%;
     width: 100%;
     gap: 3rem;
     transition: all 0.5s ease-in;
@@ -124,7 +128,7 @@
 .score {
     width: 0rem;
     opacity: 0;
-    height: 80%;
+    height: 6rem;
     border: 2px solid thistle;
     position: relative;
     transition: all 0.5s ease-in;
@@ -206,6 +210,10 @@
     opacity: 1;
 }
 
+.play .m-bg {
+    opacity: 0;
+}
+
 .play button {
     z-index: 5;
     background-color: rgba(245, 245, 220, 0.7);
@@ -245,15 +253,129 @@
 }
 
 .play-again {
-    transform: scale(1) !important;
-    opacity: 1 !important;
-    z-index: 100 !important;
+    transform: scale(1);
+    opacity: 1;
+    z-index: 100;
 }
 
-.play-again button{
-    transform: scale(1) !important;
+.play-again button {
+    transform: scale(1);
 }
 
 .play-again #play-again-header {
-    font-size: 3rem !important;
+    font-size: 3rem;
+}
+
+.owner {
+    display: flex;
+    height: 5%;
+    font-size: 1rem;
+    color: aliceblue;
+    opacity: 0.8;
+    gap: 0.5rem;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+@media screen and (max-width: 500px){
+    .bg {
+        display: none;
+    }
+    .m-bg {
+        display: block;
+        position: absolute;
+        background-size: cover;
+        z-index: 1;
+        height: 100%;
+        width: 100%;
+        opacity: 0.1;
+    }
+    .play .m-bg {
+        opacity: 1;
+    }
+    .title {
+        height: 30%;
+        width: 100%;
+    }
+    .title h1 {
+        font-size: 1.7rem;
+        margin-top: 8rem;
+        white-space: nowrap;
+        width: 100%;
+        padding-top: 1.5rem;
+        text-align: center;
+        padding-bottom: 1.5rem;
+        background-color: rgba(23, 54, 58, 0.3);
+    }
+    .title span {
+        font-size: 1.4rem;
+        margin-top: 1rem;
+    }
+    .choices {
+        height: 30%;
+        gap: 1rem;
+    }
+    .card-circle {
+        height: 6rem;
+        width: 6rem;
+    }
+    .score-board {
+        height: 30%;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 0rem 1rem;
+        gap: 1rem;
+    }
+    .score {
+        height: 4rem;
+    }
+    .show-score-board .score {
+        width: 70%;
+    }
+    .name {
+        padding: 0.2rem 1.5rem;
+    }
+    
+    .score span {
+        font-size: 1.5rem;
+    }
+    
+    .computer .name {
+        right: 75%;
+        white-space: nowrap;
+    }
+    
+    .player .name {
+        left: 75%;
+        white-space: nowrap;
+    }
+    
+    #player-score, #computer-score {
+        font-size: 2rem;
+    }
+    
+    #player-score {
+        left: 0.6rem;
+    }
+    #computer-score {
+        left: calc(50% - 0.6rem);
+    }
+    .computer {
+        margin-left: 30%;
+    }
+    .play-again #play-again-header {
+        font-size: 1.4rem;
+        white-space: nowrap;
+        color: antiquewhite;
+        width: 100%;
+        padding-top: 1rem;
+        text-align: center;
+        padding-bottom: 1rem;
+        background-color: rgba(23, 54, 58, 0.5);
+    }
+    .play button {
+        padding: 0.6rem 2rem;
+        font-size: 1.2rem;
+        background-color: antiquewhite;
+    }
 }
