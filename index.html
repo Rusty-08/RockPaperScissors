@@ -12,33 +12,33 @@
         <img class="bg" src="img/bg.jpg" alt="" srcset="">
         <div class="title">
             <h1 id="title-container"></h1>
-            <span>Race to 5 . . .</span>
+            <span id="game-race"></span>
         </div>
-        <div class="choices">
-            <div class="rock card-circle">
+        <div class="choices" id="choices">
+            <button class="rock card-circle" id="rock" data-value="rock">
                 <img src="img/rock.png" alt="" srcset="">
-            </div>
-            <div class="paper card-circle">
+            </button>
+            <button class="paper card-circle" id="paper" data-value="paper">
                 <img src="img/paper.png" alt="" srcset="">
-            </div>
-            <div class="scissor card-circle">
+            </button>
+            <button class="scissor card-circle" id="scissor" data-value="scissor">
                 <img src="img/scissor.png" alt="" srcset="">
-            </div>
+            </button>
         </div>
-        <div class="score-board">
+        <div class="score-board" id="score-board">
             <div class="player score">
                 <div class="name"><span>Ikaw ba</span></div>
-                <div id="player"></div>
+                <div id="player-score"></div>
             </div>
             <div class="computer score">
                 <div class="name"><span>Computer</span></div>
-                <div id="computer"></div>
+                <div id="computer-score"></div>
             </div>
         </div>
         <div class="play" id="play-container">
-            <h1 id="play-text"></h1>
+            <h1 id="play-again-header"></h1>
             <img class="bg" src="img/bg.jpg" alt="" srcset="">
-            <button id="playBtn" type="button">PLAY</button>
+            <button id="playBtn" type="button">PLAY AGAIN?</button>
         </div>
     </div>
 </body>

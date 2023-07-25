@@ -17,7 +17,7 @@
     opacity: 0.4;
 }
 
-.container, .title, .choices, .card-circle, .score-board, .score, .name, #player, #computer, .play {
+.container, .title, .choices, .card-circle, .score-board, .score, .name, #player-score, #computer-score, .play {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,11 +28,14 @@
     height: 30%;
     z-index: 5;
     color: aliceblue;
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
 
 .title h1 {
     font-size: 3rem;
+    margin-top: 4rem;
+    transition: 0.175s ease-in;
+    color: #F6F4EB;
 }
 
 .title span {
@@ -52,6 +55,7 @@
     height: 50%;
     width: 100%;
     gap: 3rem;
+    transition: all 0.5s ease-in;
     z-index: 5;
 }
 
@@ -61,8 +65,13 @@
     border-radius: 50%;
     border: none;
     background-color: rgba(255, 228, 196, 0.5);
-    transition: all 0.175s ease-in-out;
+    transition: 
+        all 0.175s ease-in-out,
+        transform 0.5s ease-in-out;
     cursor: pointer;
+    transform: scale(0);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, 
+                rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 .card-circle img {
@@ -74,6 +83,7 @@
 .card-circle:hover {
     background-color: rgba(255, 228, 196, 0);
     transform: scale(0.8);
+    box-shadow: none;
 }
 
 .card-circle:hover img {
@@ -88,20 +98,39 @@
     width: 60%;
 }
 
+.shrink-circles .card-circle {
+    transform: scale(1);
+}
+
 .score-board {
     flex-direction: row;
     width: 100%;
     height: 20%;
     align-items: flex-start;
-    gap: 2rem;
+    gap: 50%;
     z-index: 5;
+    transition: all 1s ease-in-out;
+}
+
+.show-score-board {
+    gap: 2rem;
+}
+
+.show-score-board .score {
+    width: 20rem;
+    opacity: 1;
 }
 
 .score {
-    width: 20rem;
+    width: 0rem;
+    opacity: 0;
     height: 80%;
     border: 2px solid thistle;
     position: relative;
+    transition: all 0.5s ease-in;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
+                rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
+                rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 .player {
@@ -118,6 +147,8 @@
     background-color: blanchedalmond;
     border-radius: 2rem;
     color: darkslategray;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, 
+                rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 .score span {
@@ -133,7 +164,7 @@
     left: -8rem;
 }
 
-#player, #computer {
+#player-score, #computer-score {
     width: 50%;
     height: 70%;
     background-color: rgba(231, 196, 152, 0.5);
@@ -142,13 +173,15 @@
     color: aliceblue;
     font-size: 2.5rem;
     font-weight: bold;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, 
+                rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
-#player {
+#player-score {
     right: 1rem;
 }
 
-#computer {
+#computer-score {
     left: 1rem;
 }
 
@@ -158,24 +191,25 @@
     height: 100%;
     z-index: 6;
     flex-direction: column;
-    justify-content: flex-start;
+    transition: all 0.175s ease-in;
+    transform: scale(0);
+    opacity: 0;
+}
+
+.play h1 {
+    z-index: 5;
+    font-size: 3rem;
+    color: antiquewhite;
 }
 
 .play .bg {
     opacity: 1;
 }
 
-.play h1 {
-    z-index: 5;
-    font-size: 3rem;
-    margin-top: 13rem;
-    color: antiquewhite;
-}
-
 .play button {
     z-index: 5;
     background-color: rgba(245, 245, 220, 0.7);
-    padding: 0.6rem 3.5rem;
+    padding: 0.6rem 3rem;
     margin-top: 3rem;
     border-radius: 2rem;
     border: none;
@@ -183,22 +217,43 @@
     font-size: 1.5rem;
     font-weight: bold;
     color: rgb(51, 80, 80);
-    transition: all 0.175s ease-in-out;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 15px 15px, rgba(0, 0, 0, 0.2) 0px 10px 8px;
+    transition: 
+        transform 1.5s ease-in-out,
+        padding 0.175s ease-in-out,
+        background-color 0.175s ease-in-out,
+        letter-spacing 0.175s ease-in-out;
+    transform: scale(0);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 15px 15px, 
+                rgba(0, 0, 0, 0.2) 0px 10px 8px;
+}
+
+#play-again-header {
+    font-size: 1rem;
+    transition: all 1s ease-in-out;
+    color: #F6F4EB;
 }
 
 .play button:hover {
     background-color: rgba(245, 245, 220, 1);
     color: rgb(21, 47, 47);
-    padding: 0.6rem 4rem;
-    letter-spacing: 0.2rem;
+    padding: 0.6rem 3.1rem;
+    letter-spacing: 0.1rem;
 }
 
 .container .play {
     transition: all 1s ease-out;
 }
 
-.hide-container {
-    transform: scale(0);
-    opacity: 0;
+.play-again {
+    transform: scale(1) !important;
+    opacity: 1 !important;
+    z-index: 100 !important;
+}
+
+.play-again button{
+    transform: scale(1) !important;
+}
+
+.play-again #play-again-header {
+    font-size: 3rem !important;
 }
